@@ -125,54 +125,7 @@
             </div>
         </div>
     </section>
-    <!-- 例如，使用 Dialogflow 的 JavaScript SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@google-cloud/dialogflow-web@0.7.0/build/dialogflow-web.min.js"></script>
-<script>
-  const dfMessenger = document.querySelector('df-messenger');
-  dfMessenger.addEventListener('df-response-received', function(event) {
-    console.log(event.detail.response.queryResult);
-  });
-</script>
-<iframe height="430" width="350" src="https://bot.dialogflow.com/220d74e3-dd02-4ef8-9827-bd691b4164a9"></iframe>
-<!-- 引入 Dialogflow Messenger 的脚本 -->
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="Your Chatbot"
-  agent-id="newagent-upiv"
-  language-code="en"
-></df-messenger>
-<div id="chat-window">
-    <div id="messages"></div>
-    <input type="text" id="user-input" placeholder="Type your message here...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
-  
-  <script>
-    async function sendMessage() {
-      const userMessage = document.getElementById('user-input').value;
-      const response = await fetch('https://dialogflow.googleapis.com/v2/projects/YOUR_PROJECT_ID/agent/sessions/YOUR_SESSION_ID:detectIntent', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
-        },
-        body: JSON.stringify({
-          queryInput: {
-            text: {
-              text: userMessage,
-              languageCode: 'en',
-            }
-          }
-        })
-      });
-  
-      const data = await response.json();
-      document.getElementById('messages').innerHTML += `<div>User: ${userMessage}</div>`;
-      document.getElementById('messages').innerHTML += `<div>Bot: ${data.queryResult.fulfillmentText}</div>`;
-    }
-  </script>
-  
+   
     <div style="text-align:center">
         <!-- Comments Section -->
         <section>
